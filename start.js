@@ -1,0 +1,6 @@
+var app = require('./app');
+//Read the port from the environment object
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+	console.log('Listening on port ' + port);
+});
