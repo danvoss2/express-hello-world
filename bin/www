@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 var app = require('./../app');
 //Read the port from the environment object
 var port = process.env.PORT || 3000;
