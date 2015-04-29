@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test.js",
-    "start": "node start.js"
+    "test": "mocha test.js"
   },
   "author": "Dan Voss",
   "license": "ISC",
