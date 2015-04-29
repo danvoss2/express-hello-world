@@ -1,0 +1,18 @@
+{
+  "name": "buildingBlocks",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test.js"
+  },
+  "author": "Dan Voss",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.12.3"
+  },
+  "devDependencies": {
+    "supertest": "^0.15.0",
+    "mocha": "^2.2.4"
+  }
+}
