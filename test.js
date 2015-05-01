@@ -1,6 +1,11 @@
 var request = require('supertest');
 var app = require('./app');
 
+var redis = require('redis');
+var redisClient = redis.createClient();
+redisClient.select('test'.length);
+redisClient.flushdb();
+
 //Use Mocha for more semantic tests
 describe('Requests to the root path', function() {
 
@@ -41,12 +46,17 @@ describe('Listing cities on /cities', function() {
 	it('Returns initial cities', function(done) {
 		request(app)
 			.get('/cities')
-			.expect(JSON.stringify(['Lotopia', 'Caspiana', 'Indigo']), done);
+			.expect(JSON.stringify([]), done);
 	});
 
 });
 
 describe('Creating new cities', function() {
+
+	//Reset the DB data between each test that updates data.
+	before(function() {
+		//Or not ;-)
+	});
 
 	it('Returns a 201 status code', function(done) {
 		request(app)
@@ -59,7 +69,7 @@ describe('Creating new cities', function() {
 	it('Returns the city name', function(done) {
 		request(app)
 			.post('/cities')
-			.send('name=springfield&description=where+the+Simpsons+live')
+			.send('name=Springfield&description=where+the+Simpsons+live')
 			.expect(/springfield/i, done);
 	});
 
